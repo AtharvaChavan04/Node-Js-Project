@@ -14,33 +14,44 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const AppbarWidget(),
-      body: Center(
+      body: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ButtonWidget(
-              text: "CREATE",
-              onPressed: () {
-                Navigator.pushNamed(context, "Create");
-              },
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ButtonWidget(
+                  text: "CREATE",
+                  onPressed: () {
+                    Navigator.pushNamed(context, "Create");
+                  },
+                ),
+                ButtonWidget(
+                  text: "READ",
+                  onPressed: () {
+                    Navigator.pushNamed(context, "Fetch");
+                  },
+                ),
+              ],
             ),
-            ButtonWidget(
-              text: "READ",
-              onPressed: () {
-                Navigator.pushNamed(context, "Fetch");
-              },
-            ),
-            ButtonWidget(
-              text: "UPDATE",
-              onPressed: () {
-                Navigator.pushNamed(context, "Update");
-              },
-            ),
-            ButtonWidget(
-              text: "DELETE",
-              onPressed: () {
-                Navigator.pushNamed(context, "Delete");
-              },
+            const SizedBox(height: 8),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ButtonWidget(
+                  text: "UPDATE",
+                  onPressed: () {
+                    Navigator.pushNamed(context, "Update");
+                  },
+                ),
+                ButtonWidget(
+                  text: "DELETE",
+                  onPressed: () {
+                    Navigator.pushNamed(context, "Delete");
+                  },
+                ),
+              ],
             ),
           ],
         ),

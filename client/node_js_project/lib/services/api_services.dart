@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:node_js_project/model/product_model.dart';
 
 class ApiServices {
-  static const baseUrl = "http://192.168.0.105:3000/api";
+  static const baseUrl = "https://node-js-project-nep0.onrender.com/api";
 
 //post method
   static addproduct(Map pdata) async {

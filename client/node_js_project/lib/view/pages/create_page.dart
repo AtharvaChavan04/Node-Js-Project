@@ -20,34 +20,49 @@ class _CreatePageState extends State<CreatePage> {
     return Scaffold(
       appBar: const AppbarWidget(),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TextfieldWidget(
-              text: "Enter Name",
-              controller: nameController,
-            ),
-            TextfieldWidget(
-              text: "Enter Price",
-              controller: priceController,
-            ),
-            TextfieldWidget(
-              text: "Enter Description",
-              controller: descController,
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                var data = {
-                  "pname": nameController.text,
-                  "pprice": priceController.text,
-                  "pdesc": descController.text,
-                };
-                ApiServices.addproduct(data);
-              },
-              child: const Text("Create Data"),
-            ),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextfieldWidget(
+                text: "Enter Name",
+                controller: nameController,
+              ),
+              const SizedBox(height: 10),
+              TextfieldWidget(
+                text: "Enter Price",
+                controller: priceController,
+              ),
+              const SizedBox(height: 10),
+              TextfieldWidget(
+                text: "Enter Description",
+                controller: descController,
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  var data = {
+                    "pname": nameController.text,
+                    "pprice": priceController.text,
+                    "pdesc": descController.text,
+                  };
+                  ApiServices.addproduct(data);
+                },
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  backgroundColor:
+                      const Color.fromARGB(255, 30, 29, 29), // Text color
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0, vertical: 12.0),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                ),
+                child: const Text("Create Data"),
+              ),
+            ],
+          ),
         ),
       ),
     );
